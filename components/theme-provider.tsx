@@ -1,10 +1,9 @@
 import { ThemeProvider as NextThemesProvider } from "next-themes";
-import type { Attribute } from "next-themes"; // Nhập type Attribute từ next-themes
 import { PropsWithChildren } from "react";
 
-// Định nghĩa ThemeProviderProps với Attribute từ next-themes
+// Định nghĩa type cho attribute
 type ThemeProviderProps = PropsWithChildren<{
-  attribute?: Attribute | Attribute[] | undefined;
+  attribute?: "class" | "data-theme" | "data-mode" | undefined;
   defaultTheme?: string | undefined;
   enableSystem?: boolean | undefined;
   disableTransitionOnChange?: boolean | undefined;
