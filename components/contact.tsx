@@ -142,17 +142,12 @@ export default function Contact() {
           <div className="inline-flex items-center px-3 sm:px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 rounded-full border border-blue-200/50 dark:border-blue-700/50">
             <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600 dark:text-blue-400 mr-2" />
             <span className="text-blue-700 dark:text-blue-300 text-sm sm:text-base font-medium">
-              Let's Connect
+              Let&apos;s Connect
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 dark:from-white dark:via-blue-100 dark:to-white bg-clip-text text-transparent">
             {t("Get In Touch")}
           </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-            {t(
-              "Let's discuss opportunities and collaborate on exciting projects"
-            )}
-          </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 xl:gap-16">
@@ -304,7 +299,7 @@ export default function Contact() {
                       {t("Subject")}
                     </label>
                     <Input
-                      placeholder="What's this about?"
+                      placeholder="What&apos;s this about?"
                       className="border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 h-10 sm:h-11"
                       required
                     />
