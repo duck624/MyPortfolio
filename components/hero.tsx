@@ -85,7 +85,7 @@ export default function Hero() {
               </motion.div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="text-gray-900 dark:text-white">Duong Lam</span>
+                <span className="text-gray-900 dark:text-white">{t("Duong Lam")}</span>
                 <br />
                 <motion.span
                   className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent relative"
@@ -93,7 +93,7 @@ export default function Hero() {
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ delay: 0.3 }}
                 >
-                  Gia Kiet
+                  {t("Gia Kiet")}
                 </motion.span>
               </h1>
 

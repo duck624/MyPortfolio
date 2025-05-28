@@ -12,6 +12,9 @@ type LanguageContextype = {
 const LanguageContext = createContext<LanguageContextype | undefined>(undefined)
 
 const translations: Record<string, string> = {
+  "Duong Lam": "Dương Lâm",
+  "Gia Kiet": "Gia Kiệt",
+
   // Navigation
   About: "Giới thiệu",
   Education: "Học vấn",
@@ -77,7 +80,7 @@ const translations: Record<string, string> = {
 
   // Skills
   "Skills & Expertise": "Kỹ năng & Chuyên môn",
-  "Technical skills and competencies I've developed": "Các kỹ năng kỹ thuật và năng lực đã phát triển",
+  "Technical skills and competencies I have developed": "Các kỹ năng kỹ thuật và năng lực đã phát triển",
   "Frontend Development": "Phát triển Frontend",
   "Backend Development": "Phát triển Backend",
   "Database & Tools": "Cơ sở dữ liệu & Công cụ",
@@ -86,7 +89,7 @@ const translations: Record<string, string> = {
   Awards: "Giải thưởng",
 
   // Contact
-  "Let's discuss opportunities and collaborate on exciting projects":
+  "Discuss opportunities and collaborate on exciting projects":
     "Hãy thảo luận về cơ hội và hợp tác trong các dự án thú vị",
   "Contact Information": "Thông tin liên hệ",
   Email: "Email",
