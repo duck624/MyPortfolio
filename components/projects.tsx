@@ -146,6 +146,7 @@ export default function Projects() {
                       </Button>
                     </motion.a>
                     <motion.a
+                      href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
                       variants={buttonVariants}
