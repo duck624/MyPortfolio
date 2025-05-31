@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { LanguageProvider } from "@/components/language-provider";
 import type { Metadata } from "next";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <title>My Portfolio</title>
+        {/* Các thẻ meta khác nếu có */}
+      </head>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
@@ -26,7 +31,21 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <LanguageProvider>{children}</LanguageProvider>
+          <LanguageProvider>
+            <Script
+              src="https://www.googletagmanager.com/gtag/js?id=G-912QM9EFWV"
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-912QM9EFWV');
+          `}
+            </Script>
+            {children}
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>
