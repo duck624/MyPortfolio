@@ -15,20 +15,22 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-912QM9EFWV"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-912QM9EFWV');
-          `}
-        </Script>
+        <title>My Portfolio</title>
+        {/* Các thẻ meta khác nếu có */}
       </Head>
+      {/* Google Analytics scripts đặt ngoài Head */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-912QM9EFWV"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-912QM9EFWV');
+        `}
+      </Script>
       <Component {...pageProps} />
     </>
   );
