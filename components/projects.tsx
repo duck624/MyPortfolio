@@ -28,7 +28,7 @@ export default function Projects() {
       title: "LMS (Learning Management System)",
       image: "/images/lms.png",
       github: "https://github.com/dlgkiet/SOA_Final",
-      demo: "",
+      demo: "https://soa-final.onrender.com",
       gradient: "from-purple-500 to-pink-500",
     },
     {
