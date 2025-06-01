@@ -21,7 +21,7 @@ export default function Projects() {
       title: "Team Tasker",
       image: "/images/team-tasker.png",
       github: "https://github.com/dlgkiet/team-tasker",
-      demo: "",
+      demo: "https://team-tasker-frontend.vercel.app",
       gradient: "from-blue-500 to-cyan-500",
     },
     {
