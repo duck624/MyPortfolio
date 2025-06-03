@@ -40,7 +40,6 @@ export default function Projects() {
     },
   ];
 
-  // Animation variants
   const headerVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -91,7 +90,7 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
           {projects.map((project, index) => (
             <motion.div
               key={index}
@@ -100,12 +99,11 @@ export default function Projects() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={cardVariants}
-              className="group"
+              className="group h-full"
             >
-              <Card className="relative overflow-hidden border border-slate-300 dark:border-slate-600 shadow-lg hover:shadow-2xl transition-all duration-700 bg-gradient-to-br from-white to-blue-50/30 dark:from-slate-700 dark:to-slate-800/40 h-full hover:-translate-y-4 hover:-translate-x-2 transform-gpu">
+              <Card className="relative overflow-hidden h-full border border-slate-300 dark:border-slate-600 shadow-lg hover:shadow-2xl transition-all duration-700 bg-gradient-to-br from-white to-blue-50/30 dark:from-slate-700 dark:to-slate-800/40 hover:-translate-y-4 hover:-translate-x-2 transform-gpu">
                 <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-transparent dark:from-slate-800/50 dark:to-transparent"></div>
-                <CardContent className="relative p-6 sm:p-8 space-y-6 sm:space-y-8 h-full flex flex-col">
-                  {/* Image Container - Increased size */}
+                <CardContent className="relative p-6 sm:p-8 h-full flex flex-col">
                   <div className="relative rounded-xl overflow-hidden aspect-video bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-700 dark:to-slate-800">
                     <img
                       src={project.image}
@@ -120,49 +118,49 @@ export default function Projects() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
 
-                  {/* Title */}
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 text-center leading-tight">
-                    {project.title}
-                  </h3>
+                  <div className="flex-1 flex flex-col justify-between space-y-6 sm:space-y-8 mt-6 sm:mt-8">
+                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 text-center sm:text-left leading-tight min-h-[3rem] flex items-center justify-center sm:justify-start">
+                      {project.title}
+                    </h3>
 
-                  {/* Buttons - Larger and more prominent */}
-                  <div className="flex gap-4 mt-auto">
-                    <motion.a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      variants={buttonVariants}
-                      whileHover="hover"
-                      whileTap="tap"
-                      className="flex-1"
-                    >
-                      <Button
-                        size="lg"
-                        variant="outline"
-                        className="w-full group/btn text-base font-medium h-12 border-2 hover:border-slate-400 dark:hover:border-slate-500"
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <motion.a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        variants={buttonVariants}
+                        whileHover="hover"
+                        whileTap="tap"
+                        className="flex-1"
                       >
-                        <Github className="h-5 w-5 mr-3 group-hover/btn:rotate-12 transition-transform duration-300" />
-                        {t("Code")}
-                      </Button>
-                    </motion.a>
-                    <motion.a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      variants={buttonVariants}
-                      whileHover="hover"
-                      whileTap="tap"
-                      className="flex-1"
-                    >
-                      <Button
-                        disabled={project.demo === ""}
-                        size="lg"
-                        className={`w-full bg-gradient-to-r ${project.gradient} hover:shadow-lg transition-all duration-300 text-base font-medium h-12`}
+                        <Button
+                          size="lg"
+                          variant="outline"
+                          className="w-full group/btn text-sm sm:text-base font-medium h-11 sm:h-12 border-2 hover:border-slate-400 dark:hover:border-slate-500"
+                        >
+                          <Github className="h-5 w-5 mr-3 group-hover/btn:rotate-12 transition-transform duration-300" />
+                          {t("Code")}
+                        </Button>
+                      </motion.a>
+                      <motion.a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        variants={buttonVariants}
+                        whileHover="hover"
+                        whileTap="tap"
+                        className="flex-1"
                       >
-                        <ExternalLink className="h-5 w-5 mr-3 group-hover:translate-x-1 transition-transform duration-300" />
-                        {t("Demo")}
-                      </Button>
-                    </motion.a>
+                        <Button
+                          disabled={project.demo === ""}
+                          size="lg"
+                          className={`w-full bg-gradient-to-r ${project.gradient} hover:shadow-lg transition-all duration-300 text-sm sm:text-base font-medium h-11 sm:h-12`}
+                        >
+                          <ExternalLink className="h-5 w-5 mr-3 group-hover:translate-x-1 transition-transform duration-300" />
+                          {t("Demo")}
+                        </Button>
+                      </motion.a>
+                    </div>
                   </div>
                 </CardContent>
               </Card>

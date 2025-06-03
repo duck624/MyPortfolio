@@ -85,7 +85,9 @@ export default function Hero() {
               </motion.div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="text-gray-900 dark:text-white">{t("Duong Lam")}</span>
+                <span className="text-gray-900 dark:text-white">
+                  {t("Duong Lam")}
+                </span>
                 <br />
                 <motion.span
                   className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent relative"
@@ -122,7 +124,7 @@ export default function Hero() {
                   const contact = document.getElementById("contact");
                   contact?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-pink-600 hover:via-purple-600 hover:to-blue-600 shadow-2xl shadow-blue-500/30 hover:shadow-purple-500/50 text-white transition-all duration-300 text-base sm:text-lg px-6 py-3 rounded-lg flex items-center group"
+                className="w-full max-w-xs sm:max-w-fit bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-pink-600 hover:via-purple-600 hover:to-blue-600 shadow-2xl shadow-blue-500/30 hover:shadow-purple-500/50 text-white transition-all duration-300 text-sm sm:text-base md:text-lg px-4 sm:px-6 py-2 sm:py-3 rounded-lg flex items-center justify-center group"
               >
                 {t("Get In Touch")}
                 <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
@@ -137,13 +139,13 @@ export default function Hero() {
             >
               {[
                 {
-                  href: "#contact",
+                  href: "mailto:kietdlg@email.com",
                   icon: Mail,
                   color:
                     "bg-gray-200 dark:bg-gray-800 hover:bg-red-300 dark:hover:bg-red-900",
                 },
                 {
-                  href: "#contact",
+                  href: "tel:+84376059179",
                   icon: Phone,
                   color:
                     "bg-gray-200 dark:bg-gray-800 hover:bg-green-300 dark:hover:bg-green-900",

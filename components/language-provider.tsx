@@ -40,7 +40,7 @@ const translations: Record<string, string> = {
   "Problem Solving": "Giải quyết vấn đề",
   "Strong analytical skills with a focus on delivering high-quality software solutions and efficient problem-solving approaches.":
     "Kỹ năng phân tích mạnh mẽ với trọng tâm cung cấp các giải pháp phần mềm chất lượng cao và phương pháp giải quyết vấn đề hiệu quả.",
-  "Team Collaboration": "Hợp tác nhóm",
+  "Team Collaboration": "Làm việc nhóm",
   "Excellent teamwork and communication skills, with experience working in collaborative environments and agile methodologies.":
     "Kỹ năng làm việc nhóm và giao tiếp xuất sắc, có kinh nghiệm làm việc trong môi trường hợp tác và phương pháp agile.",
 

@@ -143,7 +143,7 @@ export default function Education() {
                   <span className="font-semibold text-white">
                     TOEIC English Certificate
                   </span>
-                  <span className="text-2xl font-bold bg-white bg-clip-text text-transparent">
+                  <span className="text-2xl font-bold text-green-500 bg-clip-text text-transparent">
                     845/990
                   </span>
                 </div>
@@ -166,7 +166,7 @@ export default function Education() {
                   <div className="font-semibold text-white">
                     UEH Academic Encouragement Scholarship
                   </div>
-                  <div className="text-sm text-slate-300">August 2023</div>
+                  <div className="text-sm text-slate-500">August 2023</div>
                 </div>
               </div>
             </CardContent>

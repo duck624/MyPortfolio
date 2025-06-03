@@ -12,22 +12,26 @@ import {
   MapPin,
   Send,
   MessageCircle,
+  CheckCircle,
 } from "lucide-react";
 import { useLanguage } from "@/components/language-provider";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useForm, ValidationError } from '@formspree/react';
 
 export default function Contact() {
   const { t } = useLanguage();
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [state, handleSubmit] = useForm("mnnvqgpe");
 
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setIsSubmitting(false);
-    // Handle form submission logic here
+  // Function to handle card click
+  const handleCardClick = (href: string) => {
+    if (href !== "#") {
+      if (href.startsWith("mailto:") || href.startsWith("tel:")) {
+        window.location.href = href;
+      } else {
+        window.open(href, "_blank", "noopener,noreferrer");
+      }
+    }
   };
 
   // Animation variants
@@ -90,7 +94,7 @@ export default function Contact() {
       icon: Phone,
       label: t("Phone"),
       value: "(+84) 376-059-179",
-      href: "#",
+      href: "tel:+84376059179",
       gradient: "from-green-500 to-emerald-500",
     },
     {
@@ -173,9 +177,12 @@ export default function Contact() {
                 ({ icon: Icon, label, value, href, gradient }, index) => (
                   <motion.div
                     key={label}
-                    className="group flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl hover:bg-white/50 dark:hover:bg-slate-800/50 transition-all duration-300"
+                    className={`group flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl hover:bg-white/50 dark:hover:bg-slate-800/50 transition-all duration-300 ${
+                      href !== "#" ? "cursor-pointer" : ""
+                    }`}
                     variants={itemVariants}
                     whileHover={{ x: 8, transition: { duration: 0.2 } }}
+                    onClick={() => handleCardClick(href)}
                   >
                     <motion.div
                       className={`w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br ${gradient} rounded-xl flex items-center justify-center text-white shadow-lg flex-shrink-0`}
@@ -191,18 +198,9 @@ export default function Contact() {
                       <h4 className="font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base">
                         {label}
                       </h4>
-                      {href !== "#" ? (
-                        <a
-                          href={href}
-                          className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base break-all"
-                        >
-                          {value}
-                        </a>
-                      ) : (
-                        <span className="text-slate-600 dark:text-slate-300 text-sm sm:text-base">
-                          {value}
-                        </span>
-                      )}
+                      <span className="text-slate-600 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base break-all">
+                        {value}
+                      </span>
                     </div>
                   </motion.div>
                 )
@@ -252,99 +250,160 @@ export default function Contact() {
             <Card className="relative overflow-hidden border-0 shadow-2xl bg-gradient-to-br from-white to-blue-50/30 dark:from-slate-800 dark:to-slate-900/50 h-full">
               <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-transparent dark:from-slate-800/50 dark:to-transparent"></div>
               <CardContent className="relative p-6 sm:p-8 h-full">
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-6 sm:mb-8">
-                  {t("Send Message")}
-                </h3>
-
-                <motion.form
-                  className="space-y-4 sm:space-y-6"
-                  onSubmit={handleSubmit}
-                  variants={containerVariants}
-                >
+                {state.succeeded ? (
                   <motion.div
-                    className="grid sm:grid-cols-2 gap-4"
-                    variants={itemVariants}
+                    className="flex flex-col items-center justify-center h-full text-center space-y-4"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5 }}
                   >
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-slate-700 dark:text-slate-300">
-                        {t("First Name")}
-                      </label>
-                      <Input
-                        placeholder="Your first name"
-                        className="border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 h-10 sm:h-11"
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-slate-700 dark:text-slate-300">
-                        {t("Last Name")}
-                      </label>
-                      <Input
-                        placeholder="Your last name"
-                        className="border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 h-10 sm:h-11"
-                        required
-                      />
-                    </div>
-                  </motion.div>
-
-                  <motion.div className="space-y-2" variants={itemVariants}>
-                    <label className="text-sm font-medium text-slate-700 dark:text-slate-300">
-                      {t("Email")}
-                    </label>
-                    <Input
-                      type="email"
-                      placeholder="your.email@example.com"
-                      className="border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 h-10 sm:h-11"
-                      required
-                    />
-                  </motion.div>
-
-                  <motion.div className="space-y-2" variants={itemVariants}>
-                    <label className="text-sm font-medium text-slate-700 dark:text-slate-300">
-                      {t("Subject")}
-                    </label>
-                    <Input
-                      placeholder="What is this about?"
-                      className="border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 h-10 sm:h-11"
-                      required
-                    />
-                  </motion.div>
-
-                  <motion.div className="space-y-2" variants={itemVariants}>
-                    <label className="text-sm font-medium text-slate-700 dark:text-slate-300">
-                      {t("Message")}
-                    </label>
-                    <Textarea
-                      placeholder="Tell me about your project or opportunity..."
-                      rows={4}
-                      className="border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 resize-none"
-                      required
-                    />
-                  </motion.div>
-
-                  <motion.div variants={itemVariants}>
-                    <Button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300 h-11 sm:h-12 text-sm sm:text-base font-medium"
+                    <motion.div
+                      className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white shadow-lg"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
                     >
-                      {isSubmitting ? (
-                        <motion.div
-                          className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full mr-2"
-                          animate={{ rotate: 360 }}
-                          transition={{
-                            duration: 1,
-                            repeat: Infinity,
-                            ease: "linear",
-                          }}
-                        />
-                      ) : (
-                        <Send className="h-4 w-4 mr-2" />
-                      )}
-                      {isSubmitting ? t("Sending...") : t("Send Message")}
-                    </Button>
+                      <CheckCircle className="h-8 w-8" />
+                    </motion.div>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
+                      {t("Message Sent!")}
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-300">
+                      {t("Thank you for your message. I'll get back to you soon!")}
+                    </p>
                   </motion.div>
-                </motion.form>
+                ) : (
+                  <>
+                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-6 sm:mb-8">
+                      {t("Send Message")}
+                    </h3>
+
+                    <motion.form
+                      className="space-y-4 sm:space-y-6"
+                      onSubmit={handleSubmit}
+                      variants={containerVariants}
+                    >
+                      <motion.div
+                        className="grid sm:grid-cols-2 gap-4"
+                        variants={itemVariants}
+                      >
+                        <div className="space-y-2">
+                          <label className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                            {t("First Name")}
+                          </label>
+                          <Input
+                            name="firstName"
+                            placeholder="Your first name"
+                            className="border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 h-10 sm:h-11"
+                            required
+                          />
+                          <ValidationError 
+                            prefix="First Name" 
+                            field="firstName"
+                            errors={state.errors}
+                            className="text-red-500 text-sm"
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <label className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                            {t("Last Name")}
+                          </label>
+                          <Input
+                            name="lastName"
+                            placeholder="Your last name"
+                            className="border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 h-10 sm:h-11"
+                            required
+                          />
+                          <ValidationError 
+                            prefix="Last Name" 
+                            field="lastName"
+                            errors={state.errors}
+                            className="text-red-500 text-sm"
+                          />
+                        </div>
+                      </motion.div>
+
+                      <motion.div className="space-y-2" variants={itemVariants}>
+                        <label className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                          {t("Email")}
+                        </label>
+                        <Input
+                          type="email"
+                          name="email"
+                          placeholder="your.email@example.com"
+                          className="border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 h-10 sm:h-11"
+                          required
+                        />
+                        <ValidationError 
+                          prefix="Email" 
+                          field="email"
+                          errors={state.errors}
+                          className="text-red-500 text-sm"
+                        />
+                      </motion.div>
+
+                      <motion.div className="space-y-2" variants={itemVariants}>
+                        <label className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                          {t("Subject")}
+                        </label>
+                        <Input
+                          name="subject"
+                          placeholder="What is this about?"
+                          className="border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 h-10 sm:h-11"
+                          required
+                        />
+                        <ValidationError 
+                          prefix="Subject" 
+                          field="subject"
+                          errors={state.errors}
+                          className="text-red-500 text-sm"
+                        />
+                      </motion.div>
+
+                      <motion.div className="space-y-2" variants={itemVariants}>
+                        <label className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                          {t("Message")}
+                        </label>
+                        <Textarea
+                          name="message"
+                          placeholder="Tell me about your project or opportunity..."
+                          rows={4}
+                          className="border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 resize-none"
+                          required
+                        />
+                        <ValidationError 
+                          prefix="Message" 
+                          field="message"
+                          errors={state.errors}
+                          className="text-red-500 text-sm"
+                        />
+                      </motion.div>
+
+                      <motion.div variants={itemVariants}>
+                        <Button
+                          type="submit"
+                          disabled={state.submitting}
+                          className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300 h-11 sm:h-12 text-sm sm:text-base font-medium"
+                        >
+                          {state.submitting ? (
+                            <motion.div
+                              className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full mr-2"
+                              animate={{ rotate: 360 }}
+                              transition={{
+                                duration: 1,
+                                repeat: Infinity,
+                                ease: "linear",
+                              }}
+                            />
+                          ) : (
+                            <Send className="h-4 w-4 mr-2" />
+                          )}
+                          {state.submitting ? t("Sending...") : t("Send Message")}
+                        </Button>
+                      </motion.div>
+                    </motion.form>
+                  </>
+                )}
               </CardContent>
             </Card>
           </motion.div>
