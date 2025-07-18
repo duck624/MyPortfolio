@@ -20,16 +20,16 @@ export default function Skills() {
   }, []);
 
   const skillCategories = [
-    {
-      title: t("Frontend"),
-      icon: <Code className="h-5 sm:h-6 w-5 sm:w-6" />,
-      skills: "ReactJS, TailwindCSS, UI/UX",
-      gradient: "from-blue-500 via-purple-500 to-pink-500",
-    },
+    // {
+    //   title: t("Frontend"),
+    //   icon: <Code className="h-5 sm:h-6 w-5 sm:w-6" />,
+    //   skills: "ReactJS, TailwindCSS, UI/UX",
+    //   gradient: "from-blue-500 via-purple-500 to-pink-500",
+    // },
     {
       title: t("Backend"),
       icon: <Server className="h-5 sm:h-6 w-5 sm:w-6" />,
-      skills: "Laravel, REST API, C#",
+      skills: "Spring boot, REST API, HQL, JPA ",
       gradient: "from-blue-500 via-purple-500 to-pink-500",
     },
     {
@@ -41,42 +41,25 @@ export default function Skills() {
   ];
 
   const techStack = [
-    { name: "HTML", icon: "🌐", color: "#E34F26" },
-    { name: "CSS", icon: "🎨", color: "#1572B6" },
-    { name: "JavaScript", icon: "📜", color: "#F7DF1E" },
-    { name: "TypeScript", icon: "📘", color: "#3178C6" },
-    { name: "ReactJS", icon: "⚛️", color: "#61DAFB" },
-    { name: "TailwindCSS", icon: "💨", color: "#06B6D4" },
-    { name: "PHP", icon: "🐘", color: "#777BB4" },
-    { name: "Laravel", icon: "🔥", color: "#FF2D20" },
-    { name: "C#", icon: "🔷", color: "#239120" },
+    { name: "Java Core", icon: "☕", color: "#f89820" },
+    { name: "Spring Boot", icon: "🌱", color: "#6DB33F" },
+    { name: "HQL", icon: "📘", color: "#8E44AD" },
+    { name: "JPA", icon: "📦", color: "#3498DB" },
     { name: "SQL", icon: "🗄️", color: "#4479A1" },
-    { name: "Git", icon: "🔀", color: "#F05032" },
-    { name: "NodeJS", icon: "🟢", color: "#339933" },
-    { name: "Figma", icon: "🖌️", color: "#F24E1E" },
+    { name: "MySQL", icon: "🐬", color: "#00758F" },
+    { name: "PostgreSQL", icon: "🐘", color: "#336791" },
   ];
 
   // Duplicate the tech stack for seamless looping
   const duplicatedTechStack = [...techStack, ...techStack];
 
-  // Animation variants
-  const headerVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (index: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, delay: index * 0.2, ease: "easeOut" },
-    }),
-  };
+  // Measure the width for animation
+  useEffect(() => {
+    if (containerRef.current) {
+      setScrollWidth(containerRef.current.scrollWidth / 2);
+    }
+  }, []);
 
   return (
     <section
@@ -98,7 +81,14 @@ export default function Skills() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          variants={headerVariants}
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.6, ease: "easeOut" },
+            },
+          }}
         >
           <div className="inline-flex items-center px-3 sm:px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 rounded-full border border-blue-200/50 dark:border-blue-700/50">
             <Zap className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600 dark:text-blue-400 mr-2" />
@@ -121,17 +111,20 @@ export default function Skills() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                variants={cardVariants}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.5, delay: index * 0.2, ease: "easeOut" },
+                  },
+                }}
               >
                 <Card className="relative overflow-hidden border-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 backdrop-blur-sm">
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-r ${category.gradient} opacity-10 rounded-lg`}
-                  ></div>
+                  <div className={`absolute inset-0 bg-gradient-to-r ${category.gradient} opacity-10 rounded-lg`}></div>
                   <CardContent className="relative p-4 sm:p-6 bg-slate-900/80 dark:bg-slate-900/90 backdrop-blur-sm rounded-lg border border-white/10">
                     <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
-                      <div
-                        className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${category.gradient} rounded-lg flex items-center justify-center text-white shadow-md`}
-                      >
+                      <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${category.gradient} rounded-lg flex items-center justify-center text-white shadow-md`}>
                         {category.icon}
                       </div>
                       <h3 className="text-lg sm:text-xl font-bold text-white">
@@ -163,7 +156,7 @@ export default function Skills() {
                 }}
                 transition={{
                   x: {
-                    repeat: Number.POSITIVE_INFINITY,
+                    repeat: Infinity,
                     repeatType: "loop",
                     duration: 20,
                     ease: "linear",

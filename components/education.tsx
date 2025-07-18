@@ -69,7 +69,7 @@ export default function Education() {
                 <div className="flex-1 space-y-6">
                   <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                     <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white">
-                      {t("Bachelor's Degree in Software Engineering")}
+                      {t("Bachelor's Degree in Information Technology")}
                     </h3>
                     <div className="flex items-center text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-4 py-2 rounded-full text-sm">
                       <Calendar className="h-4 w-4 mr-2" />
@@ -78,7 +78,7 @@ export default function Education() {
                   </div>
 
                   <h4 className="text-xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                    {t("University of Economics Ho Chi Minh City (UEH)")}
+                    {t("University of Information Technology Ho Chi Minh City (UIT)")}
                   </h4>
 
                   <div className="grid md:grid-cols-2 gap-8">
@@ -89,7 +89,7 @@ export default function Education() {
                         {t("Program Details")}
                       </h5>
                       <ul className="space-y-2 text-sm sm:text-base">
-                        {[t("Major: Software Engineering"), t("Focus: Fullstack Software Development"), t("Status: Undergraduate")].map((item, idx) => (
+                        {[t("Major: Web Technology"), t("Focus: Backend Development"), t("Status: Undergraduate")].map((item, idx) => (
                           <li key={idx} className="flex items-start text-slate-600 dark:text-slate-300">
                             <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2.5 mr-3 flex-shrink-0"></span>
                             <span>{item}</span>
@@ -98,19 +98,21 @@ export default function Education() {
                       </ul>
                     </div>
 
-                    {/* Academic Performance */}
-                    <div className="space-y-4">
-                      <h5 className="font-semibold text-slate-800 dark:text-slate-200 flex items-center">
-                        <div className="w-2 h-2 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full mr-3"></div>
-                        {t("Academic Performance")}
-                      </h5>
-                      <div className="flex items-center gap-3 p-4 bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 rounded-xl border border-yellow-200/50 dark:border-yellow-700/50">
-                        <Award className="h-6 w-6 text-yellow-600 dark:text-yellow-400" />
-                        <span className="text-lg font-bold text-slate-900 dark:text-white">
-                          {t("GPA: 3.62 / 4.0")}
-                        </span>
-                      </div>
+                    {/* Academic Performance (hidden) */}
+                    {/*
+                  <div className="space-y-4">
+                    <h5 className="font-semibold text-slate-800 dark:text-slate-200 flex items-center">
+                      <div className="w-2 h-2 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full mr-3"></div>
+                      {t("Academic Performance")}
+                    </h5>
+                    <div className="flex items-center gap-3 p-4 bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 rounded-xl border border-yellow-200/50 dark:border-yellow-700/50">
+                      <Award className="h-6 w-6 text-yellow-600 dark:text-yellow-400" />
+                      <span className="text-lg font-bold text-slate-900 dark:text-white">
+                        {t("GPA: 3.62 / 4.0")}
+                      </span>
                     </div>
+                  </div>
+                  */}
                   </div>
                 </div>
               </div>
@@ -118,61 +120,42 @@ export default function Education() {
           </Card>
         </motion.div>
 
-        {/* Certifications & Awards */}
+        {/* Certifications - Centered */}
         <motion.div
-          className="grid md:grid-cols-2 gap-8 mt-20"
+          className="flex justify-center mt-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
         >
-          {/* Certifications */}
-          <Card className="relative overflow-hidden border-0 bg-gradient-to-br from-yellow-500/10 to-orange-500/10 backdrop-blur-sm">
-            <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/20 to-orange-500/20"></div>
-            <CardContent className="relative p-8 space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center text-white shadow-lg">
-                  <Award className="h-8 w-8 animate-pulse" />
-                </div>
-                <h3 className="text-2xl font-bold text-white">
-                  {t("Certifications")}
-                </h3>
-              </div>
-              <div className="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
-                <div className="flex items-center justify-between">
-                  <span className="font-semibold text-white">
-                    TOEIC English Certificate
-                  </span>
-                  <span className="text-2xl font-bold text-green-500 bg-clip-text text-transparent">
-                    845/990
-                  </span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Awards */}
-          <Card className="relative overflow-hidden border-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 backdrop-blur-sm">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-blue-500/20"></div>
-            <CardContent className="relative p-8 space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-2xl flex items-center justify-center text-white shadow-lg">
-                  <Users className="h-8 w-8 animate-pulse" />
-                </div>
-                <h3 className="text-2xl font-bold text-white">{t("Awards")}</h3>
-              </div>
-              <div className="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
-                <div className="space-y-2">
-                  <div className="font-semibold text-white">
-                    UEH Academic Encouragement Scholarship
+          <div className="max-w-xl w-full">
+            <Card className="relative overflow-hidden border-0 bg-gradient-to-br from-yellow-500/10 to-orange-500/10 backdrop-blur-sm">
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/20 to-orange-500/20"></div>
+              <CardContent className="relative p-8 space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center text-white shadow-lg">
+                    <Award className="h-8 w-8 animate-pulse" />
                   </div>
-                  <div className="text-sm text-slate-500">August 2023</div>
+                  <h3 className="text-2xl font-bold text-white">
+                    {t("Certifications")}
+                  </h3>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
+                <div className="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                  <div className="flex items-center justify-between">
+                    <span className="font-semibold text-white">
+                      Spring Boot Full Skill's udemy
+                    </span>
+                    <span className="text-2xl font-bold text-green-500 bg-clip-text text-transparent">
+
+                    </span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </motion.div>
       </div>
     </section>
   );
+
 }

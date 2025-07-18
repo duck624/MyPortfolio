@@ -11,33 +11,33 @@ export default function Projects() {
 
   const projects = [
     {
-      title: "Blog",
+      title: "ProductManagement",
       image: "/images/blog.png",
-      github: "https://github.com/ntnfit/webcuatui",
+      github: "https://github.com/duck624/ProductManagement",
       demo: "https://toilamerp.com/blogs",
       gradient: "from-orange-500 to-red-500",
     },
     {
-      title: "Team Tasker",
+      title: "UserManagement",
       image: "/images/team-tasker.png",
-      github: "https://github.com/dlgkiet/team-tasker",
+      github: "https://github.com/duck624/UserManagement",
       demo: "https://team-tasker-frontend.vercel.app",
       gradient: "from-blue-500 to-cyan-500",
     },
-    {
-      title: "LMS (Learning Management System)",
-      image: "/images/lms.png",
-      github: "https://github.com/dlgkiet/SOA_Final",
-      demo: "https://soa-final.onrender.com",
-      gradient: "from-purple-500 to-pink-500",
-    },
-    {
-      title: "Fcomputer",
-      image: "/images/fcomputer.png",
-      github: "https://github.com/lpta2302/final_project_web",
-      demo: "",
-      gradient: "from-green-500 to-emerald-500",
-    },
+    // {
+    //   title: "LMS (Learning Management System)",
+    //   image: "/images/lms.png",
+    //   github: "https://github.com/dlgkiet/SOA_Final",
+    //   demo: "https://soa-final.onrender.com",
+    //   gradient: "from-purple-500 to-pink-500",
+    // },
+    // {
+    //   title: "Fcomputer",
+    //   image: "/images/fcomputer.png",
+    //   github: "https://github.com/lpta2302/final_project_web",
+    //   demo: "",
+    //   gradient: "from-green-500 to-emerald-500",
+    // },
   ];
 
   const headerVariants = {
@@ -90,7 +90,7 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+        <div className="flex flex-wrap justify-center gap-6 sm:gap-8 lg:gap-10">
           {projects.map((project, index) => (
             <motion.div
               key={index}
@@ -99,7 +99,7 @@ export default function Projects() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={cardVariants}
-              className="group h-full"
+              className="group w-full sm:w-[400px] max-w-sm"
             >
               <Card className="relative overflow-hidden h-full border border-slate-300 dark:border-slate-600 shadow-lg hover:shadow-2xl transition-all duration-700 bg-gradient-to-br from-white to-blue-50/30 dark:from-slate-700 dark:to-slate-800/40 hover:-translate-y-4 hover:-translate-x-2 transform-gpu">
                 <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-transparent dark:from-slate-800/50 dark:to-transparent"></div>
@@ -119,7 +119,7 @@ export default function Projects() {
                   </div>
 
                   <div className="flex-1 flex flex-col justify-between space-y-6 sm:space-y-8 mt-6 sm:mt-8">
-                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 text-center sm:text-left leading-tight min-h-[3rem] flex items-center justify-center sm:justify-start">
+                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 text-center">
                       {project.title}
                     </h3>
 
@@ -136,9 +136,9 @@ export default function Projects() {
                         <Button
                           size="lg"
                           variant="outline"
-                          className="w-full group/btn text-sm sm:text-base font-medium h-11 sm:h-12 border-2 hover:border-slate-400 dark:hover:border-slate-500"
+                          className="w-full text-sm sm:text-base font-medium h-11 sm:h-12 border-2 hover:border-slate-400 dark:hover:border-slate-500"
                         >
-                          <Github className="h-5 w-5 mr-3 group-hover/btn:rotate-12 transition-transform duration-300" />
+                          <Github className="h-5 w-5 mr-3" />
                           {t("Code")}
                         </Button>
                       </motion.a>
@@ -156,7 +156,7 @@ export default function Projects() {
                           size="lg"
                           className={`w-full bg-gradient-to-r ${project.gradient} hover:shadow-lg transition-all duration-300 text-sm sm:text-base font-medium h-11 sm:h-12`}
                         >
-                          <ExternalLink className="h-5 w-5 mr-3 group-hover:translate-x-1 transition-transform duration-300" />
+                          <ExternalLink className="h-5 w-5 mr-3" />
                           {t("Demo")}
                         </Button>
                       </motion.a>

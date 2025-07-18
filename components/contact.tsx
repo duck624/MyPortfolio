@@ -21,7 +21,7 @@ import { useForm, ValidationError } from '@formspree/react';
 
 export default function Contact() {
   const { t } = useLanguage();
-  const [state, handleSubmit] = useForm("mnnvqgpe");
+  const [state, handleSubmit] = useForm("mgvzvnwr");
 
   // Function to handle card click
   const handleCardClick = (href: string) => {
@@ -86,29 +86,29 @@ export default function Contact() {
     {
       icon: Mail,
       label: t("Email"),
-      value: "kietdlg@gmail.com",
-      href: "mailto:kietdlg@gmail.com",
+      value: "aiduc0602@gmail.com",
+      href: "mailto:aiduc0602@gmail.com",
       gradient: "from-red-500 to-pink-500",
     },
     {
       icon: Phone,
       label: t("Phone"),
-      value: "(+84) 376-059-179",
-      href: "tel:+84376059179",
+      value: "(+84) 943-312-704",
+      href: "tel:+84943312704",
       gradient: "from-green-500 to-emerald-500",
     },
     {
       icon: Github,
       label: "GitHub",
-      value: "github.com/dlgkiet",
-      href: "https://github.com/dlgkiet",
+      value: "github.com/duck624",
+      href: "https://github.com/duck624",
       gradient: "from-gray-700 to-gray-900",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "linkedin.com/in/kietdlg",
-      href: "https://www.linkedin.com/in/ki%E1%BB%87t-d%C6%B0%C6%A1ng-l%C3%A2m-gia-b05a0625b/",
+      value: "linkedin.com/in/duck",
+      href: "https://www.linkedin.com/in/%C4%91%E1%BB%A9c-b%C3%B9i-157741198/",
       gradient: "from-blue-600 to-blue-800",
     },
     {
@@ -177,9 +177,8 @@ export default function Contact() {
                 ({ icon: Icon, label, value, href, gradient }, index) => (
                   <motion.div
                     key={label}
-                    className={`group flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl hover:bg-white/50 dark:hover:bg-slate-800/50 transition-all duration-300 ${
-                      href !== "#" ? "cursor-pointer" : ""
-                    }`}
+                    className={`group flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl hover:bg-white/50 dark:hover:bg-slate-800/50 transition-all duration-300 ${href !== "#" ? "cursor-pointer" : ""
+                      }`}
                     variants={itemVariants}
                     whileHover={{ x: 8, transition: { duration: 0.2 } }}
                     onClick={() => handleCardClick(href)}
@@ -215,12 +214,12 @@ export default function Contact() {
               <div className="flex gap-3 sm:gap-4">
                 {[
                   {
-                    href: "https://github.com/dlgkiet",
+                    href: "https://github.com/duck624",
                     icon: Github,
                     gradient: "from-gray-700 to-gray-900",
                   },
                   {
-                    href: "https://linkedin.com/in/kietdlg",
+                    href: "https://www.linkedin.com/in/%C4%91%E1%BB%A9c-b%C3%B9i-157741198/",
                     icon: Linkedin,
                     gradient: "from-blue-600 to-blue-800",
                   },
@@ -297,8 +296,8 @@ export default function Contact() {
                             className="border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 h-10 sm:h-11"
                             required
                           />
-                          <ValidationError 
-                            prefix="First Name" 
+                          <ValidationError
+                            prefix="First Name"
                             field="firstName"
                             errors={state.errors}
                             className="text-red-500 text-sm"
@@ -314,8 +313,8 @@ export default function Contact() {
                             className="border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 h-10 sm:h-11"
                             required
                           />
-                          <ValidationError 
-                            prefix="Last Name" 
+                          <ValidationError
+                            prefix="Last Name"
                             field="lastName"
                             errors={state.errors}
                             className="text-red-500 text-sm"
@@ -334,8 +333,8 @@ export default function Contact() {
                           className="border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 h-10 sm:h-11"
                           required
                         />
-                        <ValidationError 
-                          prefix="Email" 
+                        <ValidationError
+                          prefix="Email"
                           field="email"
                           errors={state.errors}
                           className="text-red-500 text-sm"
@@ -352,8 +351,8 @@ export default function Contact() {
                           className="border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 h-10 sm:h-11"
                           required
                         />
-                        <ValidationError 
-                          prefix="Subject" 
+                        <ValidationError
+                          prefix="Subject"
                           field="subject"
                           errors={state.errors}
                           className="text-red-500 text-sm"
@@ -371,8 +370,8 @@ export default function Contact() {
                           className="border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 resize-none"
                           required
                         />
-                        <ValidationError 
-                          prefix="Message" 
+                        <ValidationError
+                          prefix="Message"
                           field="message"
                           errors={state.errors}
                           className="text-red-500 text-sm"

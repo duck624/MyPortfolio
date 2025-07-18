@@ -24,19 +24,19 @@ const translations: Record<string, string> = {
   "Download CV": "Tải CV",
 
   // Hero
-  "Software Developer": "Lập trình viên Phát triển Phần mềm",
-  "Software engineering student with a background in web development, looking for an opportunity to contribute to real-world projects and grow as a developer.":
-    "Sinh viên kỹ thuật phần mềm với nền tảng phát triển web, tìm kiếm cơ hội đóng góp vào các dự án thực tế và phát triển như một developer.",
+  "Information technology": "Công nghệ thông tin",
+  "An Information Technology student with hands-on skills in web development and building Java-based APIs, looking for an opportunity to contribute to real-world projects and grow as a developer.":
+    "Sinh viên Công nghệ Thông tin có kỹ năng thực hành trong phát triển web và xây dựng API bằng Java, tìm kiếm cơ hội đóng góp vào các dự án thực tế và phát triển như một developer.",
   "Get In Touch": "Liên hệ",
   "Github": "Github",
 
   // About
   "About Me": "Giới thiệu",
-  "Passionate software engineering student with hands-on experience in web development, eager to contribute to innovative projects and grow in the tech industry.":
-    "Sinh viên kỹ thuật phần mềm đam mê với kinh nghiệm thực tế trong phát triển web, mong muốn đóng góp vào các dự án sáng tạo và phát triển trong ngành công nghệ.",
-  "Full-Stack Development": "Phát triển Full-Stack",
-  "Experienced in both frontend and backend development with modern technologies like React, Laravel, and C#.":
-    "Có kinh nghiệm trong cả phát triển frontend và backend với các công nghệ hiện đại như React, Laravel và C#.",
+  "Passionate information technology student with hands-on skills in web development, eager to contribute to innovative projects and grow in the tech industry.":
+    "Sinh viên công nghệ thông tin đam mê với kinh nghiệm thực tế trong phát triển web, mong muốn đóng góp vào các dự án sáng tạo và phát triển trong ngành công nghệ.",
+  "Back-end Development": "Phát triển Back-end",
+  "Worked on backend development in projects using modern technologies such as Java core, Spring boot, HQL and JPA.":
+    "Đã tham gia phát triển backend trong các dự án sử dụng các công nghệ hiện đại như Java Core, Spring Boot, HQL và JPA.",
   "Problem Solving": "Giải quyết vấn đề",
   "Strong analytical skills with a focus on delivering high-quality software solutions and efficient problem-solving approaches.":
     "Kỹ năng phân tích mạnh mẽ với trọng tâm cung cấp các giải pháp phần mềm chất lượng cao và phương pháp giải quyết vấn đề hiệu quả.",
@@ -46,11 +46,11 @@ const translations: Record<string, string> = {
 
   // Education
   "Academic background and achievements": "Nền tảng học thuật và thành tích",
-  "Bachelor's Degree in Software Engineering": "Cử nhân Kỹ thuật Phần mềm",
-  "University of Economics Ho Chi Minh City (UEH)": "Đại học Kinh tế TP.HCM (UEH)",
+  "Bachelor's Degree in Information Technology": "Cử nhân Công nghệ thông tin",
+  "University of Information Technology Ho Chi Minh City (UIT)": "Trường đại học Công Nghệ Thông Tin TP.HCM (UIT)",
   "Program Details": "Chi tiết chương trình",
-  "Major: Software Engineering": "Chuyên ngành: Kỹ thuật Phần mềm",
-  "Focus: Fullstack Software Development": "Định hướng: Phát triển phần mềm Fullstack",
+  "Major: Web Technology": "Chuyên ngành: Công nghệ Web",
+  "Focus: Back-end Software Development": "Định hướng: Phát triển phần mềm Back-end",
   "Status: Undergraduate": "Trạng thái: Đang học",
   "Academic Performance": "Thành tích học tập",
   "GPA: 3.62 / 4.0": "GPA: 3.62 / 4.0",

@@ -9,17 +9,13 @@ import { useLanguage } from "@/components/language-provider";
 export default function Hero() {
   const { t } = useLanguage();
 
-  const texts = [
-    "Fullstack Developer",
-    "Frontend Developer",
-    "Backend Developer",
-  ];
+  const textToType = "Backend Developer";
+
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [typedText, setTypedText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
 
   useEffect(() => {
-    const textToType = texts[currentTextIndex];
     let charIndex = isTyping ? 0 : textToType.length;
 
     if (isTyping) {
@@ -40,13 +36,12 @@ export default function Hero() {
           charIndex--;
         } else {
           clearInterval(deletingInterval);
-          setCurrentTextIndex((currentTextIndex + 1) % texts.length);
           setIsTyping(true);
         }
       }, 50);
       return () => clearInterval(deletingInterval);
     }
-  }, [currentTextIndex, isTyping]);
+  }, [isTyping]);
 
   return (
     <section
@@ -86,7 +81,7 @@ export default function Hero() {
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
                 <span className="text-gray-900 dark:text-white">
-                  {t("Duong Lam")}
+                  {t("Bui Ai")}
                 </span>
                 <br />
                 <motion.span
@@ -95,7 +90,7 @@ export default function Hero() {
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ delay: 0.3 }}
                 >
-                  {t("Gia Kiet")}
+                  {t("Duc")}
                 </motion.span>
               </h1>
 
@@ -106,7 +101,7 @@ export default function Hero() {
                 transition={{ delay: 0.4 }}
               >
                 {t(
-                  "Software engineering student with a background in web development, looking for an opportunity to contribute to real-world projects and grow as a developer."
+                  "An Information Technology student with hands-on skills in web development and building Java-based APIs, looking for an opportunity to contribute to real-world projects and grow as a developer."
                 )}
               </motion.p>
             </div>
@@ -139,25 +134,25 @@ export default function Hero() {
             >
               {[
                 {
-                  href: "mailto:kietdlg@email.com",
+                  href: "mailto:aiduc0602@gmail.com",
                   icon: Mail,
                   color:
                     "bg-gray-200 dark:bg-gray-800 hover:bg-red-300 dark:hover:bg-red-900",
                 },
                 {
-                  href: "tel:+84376059179",
+                  href: "tel:+84943312704",
                   icon: Phone,
                   color:
                     "bg-gray-200 dark:bg-gray-800 hover:bg-green-300 dark:hover:bg-green-900",
                 },
                 {
-                  href: "https://github.com/dlgkiet",
+                  href: "https://github.com/duck624",
                   icon: Github,
                   color:
                     "bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700",
                 },
                 {
-                  href: "https://www.linkedin.com/in/ki%E1%BB%87t-d%C6%B0%C6%A1ng-l%C3%A2m-gia-b05a0625b/",
+                  href: "https://www.linkedin.com/in/%C4%91%E1%BB%A9c-b%C3%B9i-157741198/",
                   icon: Linkedin,
                   color:
                     "bg-gray-200 dark:bg-gray-800 hover:bg-blue-300 dark:hover:bg-blue-900",
@@ -186,7 +181,7 @@ export default function Hero() {
               <div className="absolute inset-0 rounded-full bg-blue-200/50 dark:bg-blue-800/50 shadow-md"></div>
               <div className="absolute inset-2 rounded-full bg-white dark:bg-gray-900 flex items-center justify-center">
                 <Image
-                  src="/images/profile.jpg"
+                  src="/images/profile.png"
                   alt="K"
                   width={300}
                   height={300}

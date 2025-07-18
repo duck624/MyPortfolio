@@ -33,8 +33,8 @@ export default function Header() {
   const handleDownload = () => {
     try {
       const link = document.createElement("a");
-      link.href = "/docs/DuongLamGiaKiet_CV.pdf";
-      link.download = "DuongLamGiaKiet_CV.pdf";
+      link.href = "/docs/BuiAiDuc_CV.pdf";
+      link.download = "BuiAiDuc_CV.pdf";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -70,11 +70,10 @@ export default function Header() {
 
   return (
     <motion.header
-      className={`fixed top-0 w-full z-50 transition-all duration-700 ${
-        isScrolled
-          ? "bg-white/70 dark:bg-slate-900/70 backdrop-blur-2xl border-b border-white/20 dark:border-slate-700/30 shadow-2xl shadow-blue-500/10"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 w-full z-50 transition-all duration-700 ${isScrolled
+        ? "bg-white/70 dark:bg-slate-900/70 backdrop-blur-2xl border-b border-white/20 dark:border-slate-700/30 shadow-2xl shadow-blue-500/10"
+        : "bg-transparent"
+        }`}
       initial="hidden"
       animate="visible"
       variants={headerVariants}
@@ -87,7 +86,7 @@ export default function Header() {
                 <img src="https://byvn.net/XrTQ" alt="logo" className="w-full h-full object-contain" />
               </div>
               <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent group-hover:from-pink-600 group-hover:via-purple-600 group-hover:to-blue-600 transition-all duration-500">
-                kietdlg
+                buiaiduc
               </div>
             </a>
           </div>
