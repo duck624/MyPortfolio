@@ -143,7 +143,7 @@ export default function Education() {
                 <div className="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
                   <div className="flex items-center justify-between">
                     <span className="font-semibold text-white">
-                      Spring Boot Full Skill's udemy
+                      Spring Boot Full Skill Udemy
                     </span>
                     <span className="text-2xl font-bold text-green-500 bg-clip-text text-transparent">
 
