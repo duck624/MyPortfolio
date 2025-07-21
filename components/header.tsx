@@ -33,8 +33,8 @@ export default function Header() {
   const handleDownload = () => {
     try {
       const link = document.createElement("a");
-      link.href = "/docs/BuiAiDuc_CV.pdf";
-      link.download = "BuiAiDuc_CV.pdf";
+      link.href = "/docs/Bui Ai Duc - Deverloper Intern.pdf";
+      link.download = "Bui Ai Duc - Deverloper Intern.pdf";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
