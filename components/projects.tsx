@@ -14,14 +14,14 @@ export default function Projects() {
       title: "ProductManagement",
       image: "/images/blog.png",
       github: "https://github.com/duck624/ProductManagement",
-      demo: "https://toilamerp.com/blogs",
+      demo: "https://youtu.be/mSKQvELi4pQ",
       gradient: "from-orange-500 to-red-500",
     },
     {
       title: "UserManagement",
       image: "/images/team-tasker.png",
       github: "https://github.com/duck624/UserManagement",
-      demo: "https://team-tasker-frontend.vercel.app",
+      demo: "https://youtu.be/0zUi74y_2oQ",
       gradient: "from-blue-500 to-cyan-500",
     },
     // {
